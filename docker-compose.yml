@@ -1,0 +1,6 @@
+app:
+  build: .
+  volumes:
+    - /ssh-agent:/ssh-agent
+  env_file:
+    - .env
