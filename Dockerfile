@@ -9,5 +9,6 @@ RUN git config --global push.default "simple"
 ENTRYPOINT eval "$(ssh-agent -s)" && \
 echo $SSH_AGENT_PID && ssh-add /root/.ssh/id_rsa && \
 ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts && \
+rm -rf /var/blog && \
 git clone git@github.com:paralainer/paralainer.github.io.git /var/blog && \
 java -jar /usr/src/app/target/telegram-jekyll-github-1.0-SNAPSHOT-jar-with-dependencies.jar
